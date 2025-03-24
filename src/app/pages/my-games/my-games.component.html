@@ -1,0 +1,27 @@
+<div class="games">
+  <h2 class="text-center text-light mt-4">🎮 My Purchased Games</h2>
+
+  <div *ngIf="!userEmail" class="text-center text-light">
+    <p>Please <a routerLink="/login">Login</a> to see your games.</p>
+  </div>
+
+  <div *ngIf="userEmail">
+    <p class="text-light text-center">Logged in as: <b>{{ userEmail }}</b></p>
+
+    <div *ngIf="purchasedGames.length === 0" class="text-center text-light">
+      <p>No games purchased yet.</p>
+    </div>
+
+    <div class="row">
+      <div *ngFor="let game of purchasedGames" class="col-md-4">
+        <div class="card game-card">
+          <img [src]="game.background_image" class="card-img-top" alt="Game Image">
+          <div class="card-body">
+            <h5 class="card-title">{{ game.name }}</h5>
+            <p class="card-text">⭐ Rating: {{ game.rating }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

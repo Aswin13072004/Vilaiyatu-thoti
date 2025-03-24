@@ -1,0 +1,41 @@
+/* Custom Black Theme for Navbar */
+.navbar {
+    background-color: #000000 !important; /* Pure black background */
+    border-bottom: 1px solid #333; /* Subtle border for separation */
+  }
+  
+  .navbar-brand {
+    color: #ffffff !important; /* White text for brand */
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
+  
+ 
+  
+  .navbar-toggler {
+    border-color: #ffffff; /* White border for toggle button */
+  }
+  
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); /* White toggler icon */
+  }
+  
+  .nav-link {
+    color: #ffffff !important; /* White text for links */
+    margin: 0 10px;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-link:hover {
+    color: #ffc107 !important; /* Yellow hover effect */
+  }
+  
+  .btn-warning {
+    background-color: #ffc107; /* Bootstrap warning color */
+    border: none;
+    font-weight: bold;
+  }
+  
+  .btn-warning:hover {
+    background-color: #e0a800; /* Darker yellow on hover */
+  }

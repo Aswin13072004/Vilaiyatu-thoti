@@ -1,0 +1,71 @@
+
+.welcome-section {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.video-background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.welcome-content {
+  z-index: 1;
+  color: #fff;
+}
+
+.welcome-content h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.welcome-content p {
+  font-size: 1.5rem;
+  color: #ccc;
+}
+/* SEASON II ACT II Section with Image Background */
+.season-section {
+  position: relative;
+  height: 100vh;
+  background-image: url('http://localhost:8090/Vilaiyatuthoti/bg.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.season-content {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 40px;
+  border-radius: 10px;
+}
+
+.season-content h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #ffc107;
+}
+
+.season-content p {
+  font-size: 1.5rem;
+  color: #ccc;
+}
+
+

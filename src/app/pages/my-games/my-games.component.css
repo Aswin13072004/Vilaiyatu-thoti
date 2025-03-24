@@ -1,0 +1,12 @@
+.container {
+    background-color: #000000; /* Pure black background */
+    padding: 20px;
+    border-radius: 10px;
+  }
+  .games{
+    background-color: #000;
+    padding: 20px;
+    min-height: 90vh;
+  }
+  
+  
