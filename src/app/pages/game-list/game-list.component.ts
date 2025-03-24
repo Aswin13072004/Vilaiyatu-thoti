@@ -8,38 +8,48 @@ import { GameService } from '../../services/game.service';
 })
 export class GameListComponent implements OnInit {
   games: any[] = [];
-  searchTerm: string = ''; // ✅ Bind this to the search box
+  searchTerm: string = ''; // ✅ Search term for filtering
+  userEmail: string | null = null; // ✅ Store logged-in user
 
   constructor(private gameService: GameService) {}
 
   ngOnInit(): void {
-    this.gameService.getGames().subscribe((response: { results: any[]; }) => {
-      this.games = response.results; 
+    this.userEmail = localStorage.getItem('currentUser'); // ✅ Get logged-in user
+    this.fetchGames();
+  }
+
+  fetchGames(): void {
+    this.gameService.getGames().subscribe((response: { results: any[] }) => {
+      this.games = response.results;
     });
   }
 
   buyGame(game: any) {
-    const userEmail = localStorage.getItem('userEmail'); // ✅ Get logged-in user email
-    if (!userEmail) {
-      alert('Please login to buy games!');
+    this.userEmail = localStorage.getItem('currentUser'); // ✅ Refresh localStorage check
+  
+    if (!this.userEmail || this.userEmail.trim() === '') {
+      alert('⚠️ Please login to buy games!');
       return;
     }
   
-    // ✅ Get existing purchased games for this user
-    let userGames = JSON.parse(localStorage.getItem(`games_${userEmail}`) || '[]');
+    let userGames = JSON.parse(localStorage.getItem(`games_${this.userEmail}`) || '[]');
   
-    // ✅ Check if game is already purchased
-    const isAlreadyBought = userGames.some((g: any) => g.id === game.id);
-    if (isAlreadyBought) {
-      alert('You already own this game!');
+    if (userGames.some((g: any) => g.id === game.id)) {
+      alert('✅ You already own this game!');
       return;
     }
   
-    // ✅ Add new game to the user's list
     userGames.push(game);
-    localStorage.setItem(`games_${userEmail}`, JSON.stringify(userGames));
+    localStorage.setItem(`games_${this.userEmail}`, JSON.stringify(userGames));
   
-    alert(`Game "${game.name}" purchased successfully!`);
+    alert(`🎮 Game "${game.name}" purchased successfully!`);
   }
+  
 
+  // ✅ Check if the game is already purchased
+  isGamePurchased(game: any): boolean {
+    if (!this.userEmail) return false;
+    const userGames = JSON.parse(localStorage.getItem(`games_${this.userEmail}`) || '[]');
+    return userGames.some((g: any) => g.id === game.id);
+  }
 }

@@ -8,5 +8,14 @@
     padding: 20px;
     min-height: 90vh;
   }
+  h2{
+    padding-top: 20px;
+  }
+  .game-card{
+    background-color: #1e1e1e;
+    color: #fff;
+    border-radius: 10px;
+    margin: 10px 0;
+  }
   
   

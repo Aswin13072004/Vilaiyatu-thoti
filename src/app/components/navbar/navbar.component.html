@@ -12,9 +12,9 @@
           <li class="nav-item"><a class="nav-link" routerLink="/home">Home</a></li>
           <li class="nav-item"><a class="nav-link" routerLink="/game-list">Games</a></li>
           <li class="nav-item"><a class="nav-link" routerLink="/my-games">My Games</a></li>
+          <li class="nav-item"><a class="nav-link" routerLink="/register">New Register</a></li>
           <li class="nav-item">
-            <a class="nav-link btn btn-danger" *ngIf="isLoggedIn" (click)="logout()">Logout</a>
-            <a class="nav-link btn btn-warning" *ngIf="!isLoggedIn" routerLink="/login">Login</a>
+              <a class="nav-link btn btn-warning"  routerLink="/login">Login</a>
           </li>
           
 

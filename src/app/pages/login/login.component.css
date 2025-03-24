@@ -1,9 +1,49 @@
 .container {
-    background-color: #000000; /* Pure black background */
-    padding: 20px;
-    border-radius: 10px;
-  }
-  .login{
-    background-color: #000000;
-    min-height: 90vh;
-  }
+  background-color: #1e1e1e; /* Dark gray background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.login {
+  background-color: black; /* Slightly lighter dark background */
+  padding-top: 30px;
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+label {
+  color: #ffffff; /* White text for labels */
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+input[type="text"], input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #444444; /* Dark border */
+  border-radius: 5px;
+  background-color: #333333; /* Dark input background */
+  color: #ffffff; /* White text */
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ffc107; /* Blue button */
+  color: black; /* White text */
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: yellow; /* Darker blue on hover */
+  color: black;
+}

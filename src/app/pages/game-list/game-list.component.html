@@ -3,15 +3,24 @@
 
   <!-- ✅ Search Input -->
   <input type="text" [(ngModel)]="searchTerm" class="search-input" placeholder="Search games...">
+
   <div class="row">
-    <!-- ✅ Use Custom Pipe -->
     <div *ngFor="let game of games | gameFilter: searchTerm" class="col-md-4">
       <div class="card game-card">
         <img [src]="game.background_image" class="card-img-top" alt="Game Image">
         <div class="card-body">
           <h5 class="card-title">{{ game.name }}</h5>
           <p class="card-text">⭐ Rating: {{ game.rating }}</p>
-          <button class="btn btn-warning" (click)="buyGame(game)">Buy</button>
+
+          <!-- ✅ Show "Already Owned" if purchased -->
+          <button class="btn btn-secondary w-100" *ngIf="isGamePurchased(game)" disabled>
+            ✅ Already Owned
+          </button>
+
+          <!-- ✅ Show "Buy" if not purchased -->
+          <button class="btn btn-warning w-100" *ngIf="!isGamePurchased(game)" (click)="buyGame(game)">
+            Buy
+          </button>
         </div>
       </div>
     </div>

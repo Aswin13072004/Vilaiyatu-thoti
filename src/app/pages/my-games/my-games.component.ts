@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-games',
@@ -6,18 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-games.component.scss']
 })
 export class MyGamesComponent implements OnInit {
+  isLoggedIn: boolean = false;
+  username: string = '';
   purchasedGames: any[] = [];
-  userEmail: string | null = '';
+
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
-    this.userEmail = localStorage.getItem('userEmail'); // ✅ Get logged-in user
+    this.username = localStorage.getItem('currentUser') || '';
+    this.isLoggedIn = !!this.username;
 
-    if (this.userEmail) {
-      this.loadPurchasedGames();
+    if (this.isLoggedIn) {
+      const gamesData = localStorage.getItem(`games_${this.username}`); // ✅ Fix the key
+      this.purchasedGames = gamesData ? JSON.parse(gamesData) : [];
     }
   }
 
-  loadPurchasedGames() {
-    this.purchasedGames = JSON.parse(localStorage.getItem(`games_${this.userEmail}`) || '[]');
+  logout() {
+    localStorage.removeItem('currentUser');
+    this.router.navigate(['/login']);
   }
 }

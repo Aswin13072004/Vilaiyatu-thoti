@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { GameListComponent } from './pages/game-list/game-list.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { GameFilterPipe } from './pipes/game-filter.pipe';
+import { RegisterComponent } from './pages/register/register.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { GameFilterPipe } from './pipes/game-filter.pipe';
     GameListComponent,
     FooterComponent,
     GameFilterPipe,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
