@@ -1,12 +1,12 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'gameFilter' // ✅ This is the pipe name used in HTML
+  name: 'gameFilter' 
 })
 export class GameFilterPipe implements PipeTransform {
   transform(games: any[], searchTerm: string): any[] {
     if (!games || !searchTerm) {
-      return games; // ✅ Return all games if no search term
+      return games; 
     }
     
     return games.filter(game =>
